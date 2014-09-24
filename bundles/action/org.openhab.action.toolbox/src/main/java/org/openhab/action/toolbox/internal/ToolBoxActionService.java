@@ -13,8 +13,6 @@ import java.util.Dictionary;
 import org.openhab.core.scriptengine.action.ActionService;
 import org.osgi.service.cm.ConfigurationException;
 import org.osgi.service.cm.ManagedService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 	
 
 /**
@@ -23,9 +21,7 @@ import org.slf4j.LoggerFactory;
  * @author clinique
  * @since 1.6.0
  */
-public class toolboxActionService implements ActionService, ManagedService {
-
-	private static final Logger logger = LoggerFactory.getLogger(toolboxActionService.class);
+public class ToolBoxActionService implements ActionService, ManagedService {
 
 	/**
 	 * Indicates whether this action is properly configured which means all
@@ -34,26 +30,19 @@ public class toolboxActionService implements ActionService, ManagedService {
 	 */
 	/* default */ static boolean isProperlyConfigured = false;
 	
-	public toolboxActionService() {
-	}
-	
-	public void activate() {
-	}
-	
-	public void deactivate() {
-		// deallocate Resources here that are no longer needed and 
-		// should be reset when activating this binding again
-	}
-
 	@Override
 	public String getActionClassName() {
-		return toolbox.class.getCanonicalName();
+		return ToolBox.class.getCanonicalName();
 	}
 
 	@Override
 	public Class<?> getActionClass() {
-		return toolbox.class;
+		return ToolBox.class;
 	}
+	
+	public void activate() {}
+	
+	public void deactivate() {}
 
 	/**
 	 * @{inheritDoc}
@@ -61,9 +50,6 @@ public class toolboxActionService implements ActionService, ManagedService {
 	@Override
 	public void updated(Dictionary<String, ?> config) throws ConfigurationException {
 		if (config != null) {
-			
-			// read config parameters here ...
-
 			isProperlyConfigured = true;
 		}
 	}

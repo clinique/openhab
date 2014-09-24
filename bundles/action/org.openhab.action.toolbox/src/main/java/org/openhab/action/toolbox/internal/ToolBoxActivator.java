@@ -20,9 +20,9 @@ import org.slf4j.LoggerFactory;
  * @author clinique
  * @since 1.6.0
  */
-public final class toolboxActivator implements BundleActivator {
+public final class ToolBoxActivator implements BundleActivator {
 
-	private static Logger logger = LoggerFactory.getLogger(toolboxActivator.class); 
+	private static Logger logger = LoggerFactory.getLogger(ToolBoxActivator.class); 
 	
 	private static BundleContext context;
 	
